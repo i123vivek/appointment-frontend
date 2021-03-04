@@ -1,0 +1,14 @@
+.appointment-navbar{
+    background-color: rgba(0,0,0);
+    background: linear-gradient(180deg, rgb(121, 122, 122) 15%, rgb(2, 2, 8) 100%);
+}
+
+.navbar-brand{
+    background: transparent;
+    border: none;
+}
+
+.navbar-brand b{
+    margin-left: 5px;
+    font-size: larger;
+}

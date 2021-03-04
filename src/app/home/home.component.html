@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 heading-text">
+          <h3>Select Your Appointment Slot</h3>
+        </div>
+        <div class="col-12" *ngFor="let slot of timeSlotList">
+            <div class="card">
+                <div class="card-header">
+                  {{slot.startTime}} - {{slot.endTime}}
+                </div>
+                <div class="card-body" *ngIf = "slot.bookedFlag === false || slot.bookedFlag === undefined">
+                  <button class="btn btn-primary" (click) = "gotoAddAppointment(slot)">Book Your Appointment</button>
+                </div>
+                <div class="card-body" *ngIf = "slot.bookedFlag === true">
+                    <button class="btn btn-danger" (click) = "gotoUpdateAppointment(slot)">Update Your Appointment</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

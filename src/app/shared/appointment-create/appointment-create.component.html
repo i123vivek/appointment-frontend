@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style=" padding: 3rem;">
+            <h3 style="margin-bottom: 4rem;">BOOK YOUR APPOINTMENT</h3>
+            <!-- <div class="card" style="width: 50rem; margin: 1rem 0 1rem 0; text-align: center;"> -->
+            <form #bookAppointmentForm="ngForm" (ngSubmit)='bookAppointment()'>
+                <div class="form-group">
+
+                    <label>Time-Slot</label>
+                    <input type="text" name="timeSlot" [(ngModel)]="timeSlot" #slot="ngModel" class="form-control"
+                        placeholder="Time-Slot" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" [(ngModel)]="firstName" class="form-control"
+                        #firstname="ngModel" placeholder="Enter First Name" required>
+                </div>
+                <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+                    firstName is required.
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" [(ngModel)]="lastName" class="form-control" #lastname="ngModel"
+                        placeholder="Enter Last Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="number" name="phoneNo" [(ngModel)]="phoneNo" class="form-control"
+                        #phonenumber="ngModel" placeholder="Enter Phone Number" required>
+                </div>
+                <div [hidden]="phonenumber.valid || phonenumber.pristine" class="alert alert-danger">
+                    Phone Number is required.
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-5" [disabled]="!bookAppointmentForm.form.valid">Book
+                    Appointment</button>
+                <button type="submit" class="btn btn-danger" (click) = "goToHome()">Cancel</button>
+            </form>
+        <!-- </div> -->
+        </div>
+    </div>
+</div>
